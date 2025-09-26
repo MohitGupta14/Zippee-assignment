@@ -101,12 +101,6 @@ A Flask-based task management API with JWT authentication, user roles, and task 
 
 ---
 
-## Postman Collection
-
-You can import the provided Postman collection to test all endpoints quickly. Make sure to replace `<access_token>` with your JWT token from login.
-
----
-
 ## Contributing
 
 1. Fork the repository
