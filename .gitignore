@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+*.out
+*.err
+
+# Database files (if using SQLite locally)
+*.db
+*.sqlite3
+
+# Flask instance folder
+instance/
+*.pid
+
+# Compiled / cache
+*.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+.mypy_cache/
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment & secrets
+.env.local
+.env.production
+.env.development
+secrets.json
+
+# Byte-compiled files
+*.pkl
