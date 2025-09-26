@@ -1,5 +1,3 @@
-Now, a **README.md** draft for your project:
-
 ````markdown
 # Zippie
 
