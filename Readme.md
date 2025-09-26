@@ -31,8 +31,8 @@ A Flask-based task management API with JWT authentication, user roles, and task 
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
-   cd zippie
+   git clone https://github.com/MohitGupta14/Zippee-assignment
+   cd Zippee-assignment
 ````
 
 2. Create and activate a virtual environment:
