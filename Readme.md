@@ -61,6 +61,7 @@ A Flask-based task management API with JWT authentication, user roles, and task 
 4. **Access the API:**
    - API will be available at `http://localhost:3000`
    - Database runs on `localhost:5432`
+   - Documentation on `https://documenter.getpostman.com/view/31247402/2sB3QDvYXe`
 
 ### Docker Commands
 
