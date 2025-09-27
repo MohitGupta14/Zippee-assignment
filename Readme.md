@@ -1,6 +1,3 @@
-Now, a **README.md** draft for your project:
-
-````markdown
 # Zippie
 
 A Flask-based task management API with JWT authentication, user roles, and task CRUD functionality. Designed for learning, testing, or as a starter backend for task-oriented applications.
@@ -27,32 +24,100 @@ A Flask-based task management API with JWT authentication, user roles, and task 
   - PostgreSQL with SQLAlchemy ORM
   - Flask-Migrate for migrations
 
+- **Deployment**
+  - Docker and Docker Compose support
+  - Production-ready containerization
+
 ---
 
-## Installation
+## Quick Start with Docker (Recommended)
 
-1. Clone the repository:
+### Prerequisites
+- Docker and Docker Compose installed
+- Git
+
+### Setup
+
+1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
-   cd zippie
-````
+   git clone https://github.com/MohitGupta14/Zippee-assignment
+   cd Zippee-assignment
+   ```
 
-2. Create and activate a virtual environment:
+2. **Create environment file:**
+   Create a `.env` file in the project root:
+   ```env
+   FLASK_ENV=production
+   FLASK_DEBUG=0
+   SECRET_KEY=your-super-secret-flask-key-here
+   JWT_SECRET_KEY=your-super-secret-jwt-key-here
+   ```
 
+3. **Start the application:**
+   ```bash
+   docker compose up --build
+   ```
+
+4. **Access the API:**
+   - API will be available at `http://localhost:3000`
+   - Database runs on `localhost:5432`
+
+### Docker Commands
+
+```bash
+# Start the application
+docker compose up
+
+# Start in background
+docker compose up -d
+
+# Stop the application
+docker compose down
+
+# View logs
+docker compose logs app
+docker compose logs postgres
+
+# Restart after code changes
+docker compose up --build
+
+# Clean restart (removes database data)
+docker compose down
+docker volume rm $(docker compose config --volumes)
+docker compose up --build
+```
+
+---
+
+## Manual Installation (Alternative)
+
+If you prefer to run without Docker:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/MohitGupta14/Zippee-assignment
+   cd Zippee-assignment
+   ```
+
+2. **Create and activate a virtual environment:**
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate   # Linux/macOS
    .venv\Scripts\activate      # Windows
    ```
 
-3. Install dependencies:
-
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Set up environment variables in `.env`:
+4. **Set up PostgreSQL database:**
+   ```bash
+   # Install PostgreSQL and create database
+   createdb taskdb
+   ```
 
+5. **Set up environment variables in `.env`:**
    ```env
    FLASK_ENV=development
    FLASK_DEBUG=1
@@ -61,51 +126,91 @@ A Flask-based task management API with JWT authentication, user roles, and task 
    JWT_SECRET_KEY=super-secret-jwt-key
    ```
 
-5. Initialize the database:
-
+6. **Initialize the database:**
    ```bash
    flask db init
-   flask db migrate
+   flask db migrate -m "Initial migration"
    flask db upgrade
    ```
 
-6. Run the server:
-
+7. **Run the server:**
    ```bash
-   python run.py
+   python3 run.py or python run.py
+   ```
+## Development
+
+### Project Structure
+```
+├── app/
+│   ├── auth/          # Authentication routes
+│   ├── tasks/         # Task management routes
+│   ├── models.py      # Database models
+│   └── __init__.py    # App factory
+├── docker-compose.yml # Docker configuration
+├── Dockerfile        # Container definition
+├── requirements.txt  # Python dependencies
+├── run.py            # Application entry point
+├── start.sh          # Application startup script
+├── wait_for_db.py    # Database connection checker
+└── .env              # Environment variables (create this)
+```
+
+### Making Changes
+
+1. **Code changes with Docker:**
+   - Edit your code
+   - Restart containers: `docker compose restart app`
+   - For major changes: `docker compose up --build`
+
+2. **Database changes:**
+   ```bash
+   # Create migration
+   docker compose exec app python3 -m flask db migrate -m "Description"
+   
+   # Apply migration
+   docker compose exec app python3 -m flask db upgrade
+   ```
+
+3. **Access database:**
+   ```bash
+   docker compose exec postgres psql -U postgres -d taskdb
    ```
 
 ---
 
-## API Documentation
+## Troubleshooting
 
-**Base URL:** `http://127.0.0.1:5000`
+### Common Issues
 
-### Auth Endpoints
+**Port already in use:**
+```bash
+# Change port in docker-compose.yml or kill process using port
+sudo lsof -i :3000
+sudo kill -9 <PID>
+```
 
-* `POST /auth/register` – Register a new user
-* `POST /auth/login` – Login and get JWT access token
-* `POST /auth/logout` – Logout and blacklist JWT
+**Database connection issues:**
+```bash
+# Check if postgres is running
+docker compose ps
 
-### Tasks Endpoints
+# View postgres logs
+docker compose logs postgres
 
-* `GET /tasks/tasks` – List tasks (with pagination and optional filtering by `completed`)
-* `GET /tasks/tasks/<task_id>` – Get a specific task
-* `POST /tasks/tasks` – Create a task
-* `PUT /tasks/tasks/<task_id>` – Update a task
-* `DELETE /tasks/tasks/<task_id>` – Delete a task
+# Reset database
+docker compose down
+docker volume rm $(docker compose config --volumes)
+docker compose up --build
+```
 
-> All `/tasks` endpoints require the header:
->
-> ```
-> Authorization: Bearer <access_token>
-> ```
-
----
-
-## Postman Collection
-
-You can import the provided Postman collection to test all endpoints quickly. Make sure to replace `<access_token>` with your JWT token from login.
+**Migration conflicts:**
+```bash
+# Reset migrations (development only)
+docker compose down
+docker volume rm $(docker compose config --volumes)
+rm -rf migrations/
+docker compose up --build
+```
 
 ---
 
@@ -113,6 +218,7 @@ You can import the provided Postman collection to test all endpoints quickly. Ma
 
 1. Fork the repository
 2. Create your feature branch: `git checkout -b feature/xyz`
-3. Commit changes: `git commit -m "Add xyz feature"`
-4. Push to branch: `git push origin feature/xyz`
-5. Open a pull request
+3. Make changes and test with Docker: `docker compose up --build`
+4. Commit changes: `git commit -m "Add xyz feature"`
+5. Push to branch: `git push origin feature/xyz`
+6. Open a pull request
