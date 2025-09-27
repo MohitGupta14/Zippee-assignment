@@ -135,8 +135,62 @@ If you prefer to run without Docker:
 
 7. **Run the server:**
    ```bash
-   python3 run.py or python run.py
+   python run.py
    ```
+
+---
+
+## API Documentation
+
+**Base URL:** 
+- Docker: `http://localhost:3000`
+- Manual: `http://127.0.0.1:5000`
+
+### Auth Endpoints
+
+* `POST /auth/register` – Register a new user
+* `POST /auth/login` – Login and get JWT access token
+* `POST /auth/logout` – Logout and blacklist JWT
+
+### Tasks Endpoints
+
+* `GET /tasks/tasks` – List tasks (with pagination and optional filtering by `completed`)
+* `GET /tasks/tasks/<task_id>` – Get a specific task
+* `POST /tasks/tasks` – Create a task
+* `PUT /tasks/tasks/<task_id>` – Update a task
+* `DELETE /tasks/tasks/<task_id>` – Delete a task
+
+> All `/tasks` endpoints require the header:
+> ```
+> Authorization: Bearer <access_token>
+> ```
+
+### Example API Usage
+
+**Register a user:**
+```bash
+curl -X POST http://localhost:3000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"username": "testuser", "email": "test@example.com", "password": "password123"}'
+```
+
+**Login:**
+```bash
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "testuser", "password": "password123"}'
+```
+
+**Create a task:**
+```bash
+curl -X POST http://localhost:3000/tasks/tasks \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <your-jwt-token>" \
+  -d '{"title": "My First Task", "description": "Task description"}'
+```
+
+---
+
 ## Development
 
 ### Project Structure
