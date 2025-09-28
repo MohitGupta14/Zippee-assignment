@@ -125,6 +125,12 @@ JWT_SECRET_KEY=your-super-secret-jwt-key-here
 docker compose up --build
 ```
 
+### Demo Video
+<a href="https://drive.google.com/file/d/1LPXJPzrfy0KHGQvnNYsnBa6sX6YoPgGR/view?usp=drive_link">
+  <img src="https://github.com/user-attachments/assets/62cb7701-0d9a-41e5-88a0-cee1857038cf" />
+" alt="Watch the demo" width="400"/>
+</a>
+
 ### Access the API:
 
 * API → `http://localhost:3000`
