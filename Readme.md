@@ -48,7 +48,7 @@ This is the fastest way to try the app without building locally.
 ### Pull the app image:
 
 ```bash
-docker pull fireefurry/zippie-app:v1
+docker pull fireefurry/zippie-app:latest
 ```
 
 ### Run PostgreSQL:
@@ -72,6 +72,9 @@ docker run -d -p 5000:5000 \
   -e DATABASE_URL=postgresql://user:password@db:5432/taskdb \
   fireefurry/zippie-app:latest
 ```
+
+### Demo Video
+[▶ Watch Zippie in action](https://drive.google.com/file/d/1oUd_cLVgrj3kyAqk4ER2A-ggWJtP6oOY/view?usp=drive_link)
 
 ### check the logs
 ```bash
