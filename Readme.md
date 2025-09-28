@@ -127,8 +127,6 @@ docker compose up --build
 
 ### Demo Video
 
-### Demo Video
-
 [![Watch the demo](https://github.com/user-attachments/assets/4e6fd9d2-a97a-42b3-bb9b-26492b19beb2)](https://www.youtube.com/watch?v=52q7BTBEZxM&autoplay=1)
 
 
