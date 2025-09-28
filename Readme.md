@@ -74,9 +74,9 @@ docker run -d -p 5000:5000 \
 ```
 
 ### Demo Video
-<a href="https://drive.google.com/file/d/1oUd_cLVgrj3kyAqk4ER2A-ggWJtP6oOY/view?usp=drive_link">
-  <img src="https://github.com/user-attachments/assets/ac8c2b22-b278-49b7-a92d-19cc538673fd" alt="Watch the demo" width="600"/>
-</a>
+
+[![Watch the demo](https://github.com/user-attachments/assets/430dcffc-6922-4e0c-b44a-6d1c333101a4)](https://www.youtube.com/watch?v=UJH7r4i1ppU&autoplay=1)
+
 
 
 
@@ -126,10 +126,12 @@ docker compose up --build
 ```
 
 ### Demo Video
-<a href="https://drive.google.com/file/d/1LPXJPzrfy0KHGQvnNYsnBa6sX6YoPgGR/view?usp=drive_link">
-  <img src="https://github.com/user-attachments/assets/62cb7701-0d9a-41e5-88a0-cee1857038cf" />
-" alt="Watch the demo" width="400"/>
-</a>
+
+### Demo Video
+
+[![Watch the demo](https://github.com/user-attachments/assets/4e6fd9d2-a97a-42b3-bb9b-26492b19beb2)](https://www.youtube.com/watch?v=52q7BTBEZxM&autoplay=1)
+
+
 
 ### Access the API:
 
@@ -207,6 +209,10 @@ flask db upgrade
 ```bash
 python run.py
 ```
+
+### Demo Video
+
+[![Watch the demo](https://github.com/user-attachments/assets/4e6fd9d2-a97a-42b3-bb9b-26492b19beb2)](https://www.youtube.com/watch?v=0ctRfGpavmo&autoplay=1)
 
 ### Access the API:
 
