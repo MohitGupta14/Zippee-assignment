@@ -167,7 +167,21 @@ pip install -r requirements.txt
 ### Setup PostgreSQL manually:
 
 ```bash
-createdb taskdb
+# 1. Log in to PostgreSQL
+psql -U postgres
+
+# 2. Create the database
+CREATE DATABASE taskdb;
+
+# 3. Set/update password for postgres user
+ALTER USER postgres WITH PASSWORD 'newpassword';
+
+# 4. Connect to the new database
+\c taskdb
+
+# 5. Database connection URL
+# postgresql://postgres:newpassword@localhost:5432/taskdb
+
 ```
 
 ### Create `.env` file:
