@@ -73,6 +73,11 @@ docker run -d -p 5000:5000 \
   fireefurry/zippie-app:latest
 ```
 
+### check the logs
+```bash
+docker logs -f zippie-app
+```
+
 ### Access the API:
 
 * API → `http://localhost:3000`
