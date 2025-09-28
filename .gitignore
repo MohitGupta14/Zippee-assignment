@@ -58,3 +58,13 @@ secrets.json
 
 # Byte-compiled files
 *.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# Ignore Alembic cache files, but keep migrations themselves
+migrations/__pycache__/
