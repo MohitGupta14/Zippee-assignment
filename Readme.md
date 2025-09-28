@@ -54,21 +54,23 @@ docker pull fireefurry/zippie-app:v1
 ### Run PostgreSQL:
 
 ```bash
-docker run --name zippie-postgres \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=newpassword \
+docker run -d \
+  --name zippie-postgres \
+  -e POSTGRES_USER=user \
+  -e POSTGRES_PASSWORD=password \
   -e POSTGRES_DB=taskdb \
   -p 5432:5432 \
-  -d postgres:15
+  postgres:15
 ```
 
 ### Run the app:
 
 ```bash
-docker run --name zippie-app \
-  -p 3000:5000 \
-  -e DATABASE_URL=postgresql://postgres:newpassword@host.docker.internal:5432/taskdb \
-  fireefurry/zippie-app:v1
+docker run -d -p 5000:5000 \
+  --name zippie-app \
+  --link zippie-postgres:db \
+  -e DATABASE_URL=postgresql://user:password@db:5432/taskdb \
+  fireefurry/zippie-app:latest
 ```
 
 ### Access the API:
