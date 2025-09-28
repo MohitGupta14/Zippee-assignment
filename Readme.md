@@ -74,8 +74,10 @@ docker run -d -p 5000:5000 \
 ```
 
 ### Demo Video
-[![Watch the demo](<img width="1470" height="956" alt="Screenshot 2025-09-28 at 1 56 27 PM" src="https://github.com/user-attachments/assets/ac8c2b22-b278-49b7-a92d-19cc538673fd" />
-)](https://drive.google.com/file/d/1oUd_cLVgrj3kyAqk4ER2A-ggWJtP6oOY/view?usp=drive_link)
+<a href="https://drive.google.com/file/d/1oUd_cLVgrj3kyAqk4ER2A-ggWJtP6oOY/view?usp=drive_link">
+  <img src="https://github.com/user-attachments/assets/ac8c2b22-b278-49b7-a92d-19cc538673fd" alt="Watch the demo" width="600"/>
+</a>
+
 
 
 ### check the logs
